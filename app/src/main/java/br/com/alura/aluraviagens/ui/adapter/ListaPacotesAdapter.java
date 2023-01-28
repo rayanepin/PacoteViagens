@@ -1,5 +1,6 @@
 package br.com.alura.aluraviagens.ui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
@@ -44,7 +45,8 @@ public class ListaPacotesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int posicao, View view, ViewGroup parent) {
-        View viewCriada = LayoutInflater.from(context)
+        @SuppressLint("ViewHolder") View viewCriada = LayoutInflater
+                .from(context)
                 .inflate(R.layout.item_pacote, parent, false);
 
         Pacote pacote = pacotes.get(posicao);

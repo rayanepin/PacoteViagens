@@ -29,7 +29,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:src="@sample/pacotes.json/pacotes/imagem" />
+                tools:src="@sample/pacotes.json/pacotes/imagem"
+                android:contentDescription="@string/descricao_imagem_do_pacote" />
 
             <TextView
                 android:id="@+id/item_pacote_local"
