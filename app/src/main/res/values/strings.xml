@@ -16,4 +16,7 @@
     <string name="finalizar_compra">Finalizar compra</string>
     <string name="mascara_nome_no_cartao">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzÁáÂâÃãÀàÇçÉéÊêÍíÓóÔôÕõÚú\u0020</string>
     <string name="descricao_imagem_do_pacote">Imagem do pacote</string>
+    <string name="parabens_resumo">Parabéns!</string>
+    <string name="compra_realizada_com_sucesso">Compra realizada com sucesso :)</string>
+    <string name="texto_confira_resumo">Confira o resumo da compra:</string>
 </resources>
