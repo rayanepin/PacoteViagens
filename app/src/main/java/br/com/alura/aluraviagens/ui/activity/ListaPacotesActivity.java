@@ -1,10 +1,12 @@
 package br.com.alura.aluraviagens.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static br.com.alura.aluraviagens.ui.PacoteActivity.CHAVE_PACOTE;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.List;
 
@@ -24,14 +26,22 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         setTitle(TITULO_APPBAR);
         configuraLista();
-
-        Intent intent = new Intent(this, ResumoPacoteActivity.class);
-        startActivity(intent);
     }
 
     private void configuraLista() {
         ListView listaDePacotes = findViewById(R.id.lista_pacotes_listview);
-        List<Pacote> pacotes = new PacoteDAO().lista();
+        final List<Pacote> pacotes = new PacoteDAO().lista();
         listaDePacotes.setAdapter(new ListaPacotesAdapter(pacotes, this));
+        listaDePacotes.setOnItemClickListener((parent, view, posicao, id) -> {
+            Pacote pacoteClicado = pacotes.get(posicao);
+            vaiParaResumoPacote(pacoteClicado);
+        });
+    }
+
+    private void vaiParaResumoPacote(Pacote pacoteClicado) {
+        Intent intent = new Intent(ListaPacotesActivity.this,
+                ResumoPacoteActivity.class);
+        intent.putExtra(CHAVE_PACOTE, pacoteClicado);
+        startActivity(intent);
     }
 }

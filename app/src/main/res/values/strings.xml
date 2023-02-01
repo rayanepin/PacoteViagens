@@ -18,5 +18,7 @@
     <string name="descricao_imagem_do_pacote">Imagem do pacote</string>
     <string name="parabens_resumo">Parabéns!</string>
     <string name="compra_realizada_com_sucesso">Compra realizada com sucesso :)</string>
-    <string name="texto_confira_resumo">Confira o resumo da compra:</string>
+    <string name="confira_resumo">Confira o resumo da compra:</string>
+    <string name="banner_inicial">Banner inicial</string>
+    <string name="imagem_do_pacote">Imagem do pacote</string>
 </resources>

@@ -1,12 +1,13 @@
 package br.com.alura.aluraviagens.ui.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static br.com.alura.aluraviagens.ui.PacoteActivity.CHAVE_PACOTE;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
-import java.math.BigDecimal;
+import androidx.appcompat.app.AppCompatActivity;
 
 import br.com.alura.aluraviagens.R;
 import br.com.alura.aluraviagens.model.Pacote;
@@ -22,15 +23,29 @@ public class PagamentoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pagamento);
 
         setTitle(TITULO_APPBAR);
+        carregaPacoteRecebido();
+    }
 
-        Pacote pacoteSaoPaulo = new Pacote("São Paulo", "sao_paulo_sp",
-                2, new BigDecimal("243.99"));
+    private void carregaPacoteRecebido() {
+        Intent intent = getIntent();
+        if (intent.hasExtra(CHAVE_PACOTE)) {
+            final Pacote pacote = (Pacote) intent.getSerializableExtra(CHAVE_PACOTE);
 
-        mostraPreco(pacoteSaoPaulo);
+            mostraPreco(pacote);
+            configuraBotao(pacote);
+        }
+    }
 
-        Intent intent = new Intent(this, ResumoCompraActivity.class);
-        startActivity(intent);
+    private void configuraBotao(Pacote pacote) {
+        Button botaoFinalizaCompra = findViewById(R.id.pagamento_botao_finaliza_compra);
+        botaoFinalizaCompra.setOnClickListener(v -> vaiParaResumoCompra(pacote));
+    }
 
+    private void vaiParaResumoCompra(Pacote pacote) {
+        Intent intent1 = new Intent(PagamentoActivity.this,
+                ResumoCompraActivity.class);
+        intent1.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent1);
     }
 
     private void mostraPreco(Pacote pacote) {
